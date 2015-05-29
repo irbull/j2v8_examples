@@ -16,6 +16,7 @@ import java.util.List;
 import com.eclipsesource.v8.JavaCallback;
 import com.eclipsesource.v8.V8;
 import com.eclipsesource.v8.V8Array;
+import com.eclipsesource.v8.V8Object;
 import com.eclipsesource.v8.utils.V8ObjectUtils;
 
 public class ThreadMain {
@@ -55,7 +56,7 @@ public class ThreadMain {
 	public class Sort implements JavaCallback {
 		List<Object> result = null;
 
-		public Object invoke(final V8Array parameters) {
+		public Object invoke(final V8Object receiver, final V8Array parameters) {
 			final List<Object> data = V8ObjectUtils.toList(parameters);
 
 			Thread t = new Thread(new Runnable() {
